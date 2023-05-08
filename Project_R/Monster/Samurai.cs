@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_R.Monster
+namespace Project_R
 {
-    internal class Samurai
+    public class Samurai
     {
     }
 }

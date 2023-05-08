@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_R
 {
-    public class Drake
+    internal class PlayerSkill
     {
     }
 }

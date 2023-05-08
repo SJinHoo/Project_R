@@ -35,7 +35,14 @@ namespace Project_R
         //초기화
         private void Init()
         {
+            Console.CursorVisible = false;
+
+
             mainMenu = new MainMenuScene(this);
+            map = new MapScene(this);
+            inventory = new Inventory(this);
+            battle = new BattleScene(this);
+            tutorial = new TutorialScene(this);
             scene = mainMenu;
 
         }
@@ -74,9 +81,15 @@ namespace Project_R
             scene = tutorial;
         }
 
+        public void Battle()
+        {
+            scene = battle;
+            battle.startBattle
+        }
         public void GameStart()
         {
-            scene = tutorial;
+            scene = map;
+            map.Get
         }
         public void GameOver(string text = "")
         {
