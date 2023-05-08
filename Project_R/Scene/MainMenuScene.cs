@@ -16,31 +16,40 @@ namespace Project_R
         public override void Render()
         {
             StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine(" 1. 게임 시작 ");
-            sb.AppendLine(" 2. 게임 종료 ");
-            sb.Append(" ");
+            sb.AppendLine("########  ########   #######        ## ########  ######  ########               ########  \r\n##     ## ##     ## ##     ##       ## ##       ##    ##    ##                  ##     ## \r\n##     ## ##     ## ##     ##       ## ##       ##          ##                  ##     ## \r\n########  ########  ##     ##       ## ######   ##          ##       #######    ########  \r\n##        ##   ##   ##     ## ##    ## ##       ##          ##                  ##   ##   \r\n##        ##    ##  ##     ## ##    ## ##       ##    ##    ##                  ##    ##  \r\n##        ##     ##  #######   ######  ########  ######     ##                  ##     ## ");
+            sb.AppendLine();
+            sb.AppendLine("                                 Project - R                ");
+            sb.AppendLine();
+            sb.AppendLine("                               게임 시작 : ENTER             ");
+            sb.AppendLine("                               게임 종료 : ESC               ");
+           
 
             Console.WriteLine(sb.ToString());
         }
 
         public override void Update()
         {
-            string input = Console.ReadLine();
+            ConsoleKeyInfo Input = Console.ReadKey();
 
-            int index;
-            if(! int .TryParse(input, out index))
+            switch (Input.Key)
             {
-                Console.WriteLine("잘 못된 입력입니다.");
-                Thread.Sleep(2000);
-                return;
-            }
-
-            switch (index)
-            {
-                case 1:
+                case ConsoleKey.Enter:
+                    game.Tutorial();
+                    game.GameStart();
+                    break;  
+                case ConsoleKey.Escape:
+                    game.GameOver(" 게임을 종료했습니다. ");
+                    break;
+                default:
+                    Console.WriteLine(" 잘못된 입력입니다. ");
+                    Thread.Sleep(1000);
+                    break;
                     
             }
+            
+
+
+
         }
     }
 }

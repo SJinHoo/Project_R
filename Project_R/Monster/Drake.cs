@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_R
+namespace Project_R.Monster
 {
-    public class DiscussScene
+    internal class Drake
     {
     }
 }
