@@ -79,6 +79,18 @@ namespace Project_R
                 { false, false, false, false, false, false, false, false, false, false, false, false, false, false },
             };
 
+            player.pos = new Position(3, 3);
 
+            monsters.Clear();
+            items.Clear();
+
+            Slime slime1 = new Slime();
+            slime1.pos = new Position(3, 5);
+            monsters.Add(slime1);
+
+            Slime slime2 = new Slime();
+            slime2.pos = new Position(7, 5);
+            monsters.Add(slime2);
         }
+    }
 }

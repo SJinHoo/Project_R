@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Project_R
 {
-    internal class PlayerSkill
+    public struct Skill
     {
+        public string name;
+        public Action<Monster> action;
+
+        public Skill(string name, Action<Monster> action)
+        {
+            this.name = name;
+            this.action = action;
+        }
     }
+    
 }

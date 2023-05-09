@@ -16,7 +16,6 @@ namespace Project_R
         private Inventory inventory;
         private BattleScene battle;
         private MapScene map;
-        private TutorialScene tutorial;
         
         public void Run()
         {   
@@ -37,12 +36,11 @@ namespace Project_R
         {
             Console.CursorVisible = false;
 
-
+            Data.Init();
             mainMenu = new MainMenuScene(this);
             map = new MapScene(this);
             inventory = new Inventory(this);
             battle = new BattleScene(this);
-            tutorial = new TutorialScene(this);
             scene = mainMenu;
 
         }
@@ -76,20 +74,20 @@ namespace Project_R
         {
             scene = inventory;
         }
-        public void Tutorial()
+        public void Map()
         {
-            scene = tutorial;
+            scene = map;
         }
 
-        public void Battle()
+        public void Battle(Monster monster)
         {
             scene = battle;
-            battle.startBattle
+            battle.StartBattle(monster);
         }
         public void GameStart()
         {
             scene = map;
-            map.Get
+            map.GenerateMap();
         }
         public void GameOver(string text = "")
         {

@@ -34,7 +34,6 @@ namespace Project_R
             switch (Input.Key)
             {
                 case ConsoleKey.Enter:
-                    game.Tutorial();
                     game.GameStart();
                     break;  
                 case ConsoleKey.Escape:

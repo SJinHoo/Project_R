@@ -13,6 +13,7 @@ namespace Project_R
         public string image;
         public char icon = '♥';
         public Position pos;
+        public List<Skill> skills;
         public string Name { get; set; }
         public int CurHp { get; set; }
         public int MaxHp { get; set; }
@@ -33,6 +34,10 @@ namespace Project_R
             AP = 10;
             DP = 10;
             Gold = 0;
+
+            skills = new List<Skill>();
+            skills.Add(new Skill("기본 공격", Attack));
+            skills.Add(new Skill("회복", Recovery));
             
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡒⠲⡶⠦⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠤⠂⠃⢀⣵⣾⣿⡏⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⢠⠒⣢⠀⠀⠀⠎⠀⠀⠀⠀⠛⠛⠿⣿⣇⡀⠈⠱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠘⠻⣋⣧⡀⡄⡀⢠⠀⢈⣭⠛⣙⠒⠂⠈⠉⠃⠀⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢶⡹⢱⠃⡞⠀⣸⡟⢸⣟⢸⡿⣰⡆⠀⠀⠹⢷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢇⣿⢸⡇⣤⣿⣧⣿⣧⣼⣧⣿⣥⣤⠀⣰⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢮⣷⣯⡧⣻⣻⣿⣿⣿⣿⣿⣿⠻⠏⡠⡐⡣⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢧⠾⢿⠞⣌⡛⣙⣛⣛⣏⣀⠶⣾⣝⠊⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠢⠋⠀⠈⣿⣉⡿⠿⣿⡋⣿⡱⣾⣇⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⣼⣟⣽⢪⣿⣶⣚⢭⣶⡞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠔⣻⢷⣶⣿⡿⣿⡛⠺⣿⡔⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢯⣺⣿⣿⣿⣧⣿⣮⣱⣿⣿⣧⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣇⢿⣿⣖⣿⣿⣿⡄⣿⣿⣷⣇⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⡟⡻⡃⣳⣛⡧⣛⣟⣿⣇⠿⠿⢟⣿⣷⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠉⠀⠀⠉⠉⢟⣛⣛⡀");
@@ -94,6 +99,14 @@ namespace Project_R
             Console.WriteLine($"플레리어가 {monster.name}(을/를) 공격합니다.");
             Thread.Sleep(100);
             monster.TakeDamage(AP);
+        }
+        public void Recovery(Monster monster)
+        {
+            Console.WriteLine("플레이어가 회복을 시도합니다.");
+            Thread.Sleep(1000);
+            Heal(5);
+            Console.WriteLine($"플레이어의 체력이 {CurHp}가 되었습니다.");
+            Thread.Sleep(1000);
         }
 
         public void TakeDamage(int damage)
